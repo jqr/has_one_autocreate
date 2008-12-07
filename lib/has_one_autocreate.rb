@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'activerecord'
+
 # Functional prototype of automatic create/build on a has_one relationship.
 # TODO: needs to be loaded before cache_fu extensions.
 module HasOneAutocreate

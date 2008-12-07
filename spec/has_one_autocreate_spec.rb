@@ -1,19 +1,11 @@
-require 'spec'
-require 'has_one_autocreate'
-require 'fileutils'
+require File.join(File.dirname(__FILE__), 'spec_helper')
 
-class User < ActiveRecord::Base
-  has_one :profile, :autocreate => true
-end
-
-class Profile < ActiveRecord::Base
-  belongs_to :user
-end
 
 describe HasOneAutocreate do
   before(:all) do 
     ActiveRecord::Base.establish_connection(:adapter => 'sqlite3',
-                                            :database => 'test.sqlite3')
+      :database => TEST_DATABASE_FILE)
+      
     User.connection.create_table :users do |t|
       t.string :name
     end
@@ -27,7 +19,7 @@ describe HasOneAutocreate do
     User.connection.drop_table(:users)
     Profile.connection.drop_table(:profiles)
     
-    FileUtils.rm('test.sqlite3')
+    FileUtils.rm(TEST_DATABASE_FILE) if File.exist?(TEST_DATABASE_FILE)
   end
   
   before(:each) do
