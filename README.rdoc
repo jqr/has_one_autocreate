@@ -31,11 +31,11 @@ As a Rails plugin.
 
   ./script/plugin install git://github.com/jqr/has_one_autocreate.git
 
-Prefer gems?
+Prefer gems? Add this to your environment.rb and run the following command.
 
-  gem sources -a http://gems.github.com
-  gem install jqr-has_one_autocreate
+  config.gem 'jqr-has_one_autocreate', :lib => 'has_one_autocreate', :source => 'http://gems.github.com'
 
+  $ rake gems:install
 
 Homepage:: http://github.com/jqr/has_one_autocreate/tree/master  
 License:: Copyright (c) 2008 Elijah Miller <mailto:elijah.miller@gmail.com>, released under the MIT license.
