@@ -46,4 +46,31 @@ describe HasOneAutocreate do
     end
   end
 
+  describe 'with an unsaved user' do
+
+    before(:each) do
+      @user = User.new(:name => 'Dr. User')
+    end
+
+    describe 'before accessing the profile' do
+      it "has NOT created the profile" do
+        Profile.count.should == 0
+      end
+    end
+
+    describe 'after accessing the profile' do
+      before(:each) do
+        @profile = @user.profile
+      end
+      
+      it "does not create the profile" do
+        Profile.count.should_not == 0
+      end
+      
+      it "is a profile" do
+        @profile.should be_kind_of(Profile)
+      end
+    end
+  
+  end
 end
