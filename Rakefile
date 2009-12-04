@@ -3,7 +3,7 @@ require 'spec/rake/spectask'
 require 'echoe'
 Echoe.new 'has_one_autocreate' do |p|
   p.description     = "Automatic creation and building for has_one relationships."
-  # p.url             = "http://has_one_autocreate.rubyforge.org"
+  p.url             = "http://github.com/jqr/has_one_autocreate"
   p.author          = "Elijah Miller"
   p.email           = "elijah.miller@gmail.com"
   p.retain_gemspec  = true
